@@ -19,4 +19,16 @@ public class IdentifiableBox<I extends Comparable<? super I>, T> implements Comp
     public int compareTo(IdentifiableBox<I, ?> otherBox) {
         return identifier.compareTo(otherBox.identifier);
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof IdentifiableBox<?, ?> that)) return false;
+
+        return identifier.equals(that.identifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return identifier.hashCode();
+    }
 }
